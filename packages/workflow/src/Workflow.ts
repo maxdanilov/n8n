@@ -165,7 +165,7 @@ export class Workflow {
 			if (ignoreNodeTypes !== undefined && ignoreNodeTypes.includes(node.type)) {
 				continue;
 			}
-
+			
 			nodeType = this.nodeTypes.getByNameAndVersion(node.type, node.typeVersion);
 
 			if (nodeType === undefined) {
@@ -700,6 +700,7 @@ export class Workflow {
 		let nodeType: INodeType;
 		for (const nodeName of nodeNames) {
 			node = this.nodes[nodeName];
+
 			nodeType = this.nodeTypes.getByNameAndVersion(node.type, node.typeVersion) as INodeType;
 
 
@@ -773,7 +774,6 @@ export class Workflow {
 	async runWebhookMethod(method: WebhookSetupMethodNames, webhookData: IWebhookData, nodeExecuteFunctions: INodeExecuteFunctions, mode: WorkflowExecuteMode, isTest?: boolean): Promise<boolean | undefined> {
 		const node = this.getNode(webhookData.node) as INode;
 		const nodeType = this.nodeTypes.getByNameAndVersion(node.type, node.typeVersion) as INodeType;
-
 
 		if (nodeType.webhookMethods === undefined) {
 			return;
