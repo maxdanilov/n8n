@@ -10,7 +10,6 @@ import {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { HttpRequestBase } from './HttpRequest_base.node';
 
 import { OptionsWithUri } from 'request';
 
